@@ -152,11 +152,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Zoom"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="zoomButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="colorChangeButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Change Color"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="colorChangeButtonActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

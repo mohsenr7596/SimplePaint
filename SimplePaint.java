@@ -100,8 +100,18 @@ public class SimplePaint extends javax.swing.JFrame {
         });
 
         zoomButton.setText("Zoom");
+        zoomButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                zoomButtonActionPerformed(evt);
+            }
+        });
 
         colorChangeButton.setText("Change Color");
+        colorChangeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                colorChangeButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -193,6 +203,14 @@ public class SimplePaint extends javax.swing.JFrame {
 
         command[0] = jComboBox1.getItemAt(jComboBox1.getSelectedIndex());
     }//GEN-LAST:event_jComboBox1ItemStateChanged
+
+    private void colorChangeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_colorChangeButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_colorChangeButtonActionPerformed
+
+    private void zoomButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zoomButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_zoomButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton colorChangeButton;
