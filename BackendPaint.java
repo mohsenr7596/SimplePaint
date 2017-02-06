@@ -1,5 +1,3 @@
-package HomeWork.D_95_11_05.SimplePaint;
-
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;

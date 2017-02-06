@@ -1,5 +1,3 @@
-package HomeWork.D_95_11_05.SimplePaint;
-
 import java.awt.*;
 
 public class SimplePaint extends javax.swing.JFrame {

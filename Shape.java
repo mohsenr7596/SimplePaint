@@ -1,5 +1,3 @@
-package HomeWork.D_95_11_05.SimplePaint;
-
 public class Shape {
 
     private final String color;
