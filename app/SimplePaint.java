@@ -1,3 +1,5 @@
+package app;
+
 import java.awt.*;
 
 public class SimplePaint extends javax.swing.JFrame {
@@ -30,7 +32,7 @@ public class SimplePaint extends javax.swing.JFrame {
             @Override
             public void paint(Graphics g) {
                 super.paint(g);
-                for (Shape s : bPaint.getList()) {
+                for (app.Shape s : bPaint.getList()) {
                     bPaint.drawShape(s, g);
                 }
             }
@@ -186,7 +188,7 @@ public class SimplePaint extends javax.swing.JFrame {
 
     private void paintPanelMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_paintPanelMouseReleased
 
-        Shape shape = new Shape(startX, startY, evt.getX(), evt.getY(), command[0], command[1]);
+        app.Shape shape = new app.Shape(startX, startY, evt.getX(), evt.getY(), command[0], command[1]);
 
         bPaint.drawShape(shape, paintPanel.getGraphics());
 

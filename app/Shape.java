@@ -1,3 +1,5 @@
+package app;
+
 public class Shape {
 
     private final String color;
