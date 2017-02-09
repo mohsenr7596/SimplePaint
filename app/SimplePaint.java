@@ -220,9 +220,6 @@ public class SimplePaint extends javax.swing.JFrame {
         g.translate(1000,1000);
         g.scale(10.0, 10.0);
         repaint();
-        
-
-
 
     }//GEN-LAST:event_zoomButtonActionPerformed
 
