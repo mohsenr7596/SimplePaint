@@ -216,8 +216,11 @@ public class SimplePaint extends javax.swing.JFrame {
     private void zoomButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zoomButtonActionPerformed
 
         command[1] = "";
-        Graphics g = paintPanel.getGraphics();
-        g.translate(250,250);
+        Graphics2D g = (Graphics2D) paintPanel.getGraphics();
+        g.translate(1000,1000);
+        g.scale(10.0, 10.0);
+        repaint();
+        
 
 
 
