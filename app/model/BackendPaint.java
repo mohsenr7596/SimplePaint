@@ -5,6 +5,9 @@ import app.shapes.Shape;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -120,5 +123,40 @@ public class BackendPaint {
             return true;
         }
         return false;
+    }
+
+    public void zoomOptionPane() {
+
+        Robot robot = null;
+        try {
+            robot = new Robot();
+        } catch (AWTException e) {
+            e.printStackTrace();
+        }
+
+        final int size = 256;
+        final BufferedImage bi = new BufferedImage(
+                size, size, BufferedImage.TYPE_INT_RGB);
+        final JLabel gui = new JLabel(new ImageIcon(bi));
+        final Robot finalRobot = robot;
+        ActionListener zoomListener = new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                PointerInfo pi = MouseInfo.getPointerInfo();
+                Point p = pi.getLocation();
+                BufferedImage temp = finalRobot.createScreenCapture(
+                        new Rectangle(p.x - (size / 4), p.y - (size / 4),
+                                (size / 2), (size / 2)));
+                Graphics g = bi.getGraphics();
+                g.drawImage(temp, 0, 0, size, size, null);
+                g.dispose();
+                gui.repaint();
+            }
+        };
+        Timer t = new Timer(40, zoomListener);
+        t.start();
+
+        JOptionPane.showMessageDialog(null, gui);
     }
 }

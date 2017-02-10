@@ -3,7 +3,6 @@ package app;
 import app.model.BackendPaint;
 import app.shapes.Circle;
 import app.shapes.Line;
-
 import java.awt.*;
 import java.util.List;
 
@@ -224,7 +223,8 @@ public class SimplePaint extends javax.swing.JFrame {
     }//GEN-LAST:event_colorChangeButtonActionPerformed
 
     private void zoomButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zoomButtonActionPerformed
-        command[1] = "zoom";
+
+        bPaint.zoomOptionPane();
         setAllButtonEnable();
     }//GEN-LAST:event_zoomButtonActionPerformed
 
@@ -240,12 +240,6 @@ public class SimplePaint extends javax.swing.JFrame {
                     break;
                 }
             }
-            repaint();
-        } else if ("zoom".equals(command[1])) {
-//          TODO
-
-            
-
             repaint();
         }
     }//GEN-LAST:event_paintPanelMousePressed
