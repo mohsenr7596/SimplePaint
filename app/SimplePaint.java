@@ -120,169 +120,22 @@ public class SimplePaint extends javax.swing.JFrame {
 					}
 				}
 
-			}
-		});
 
-		javax.swing.GroupLayout paintPanelLayout = new javax.swing.GroupLayout(
-				paintPanel);
-		paintPanel.setLayout(paintPanelLayout);
-		paintPanelLayout.setHorizontalGroup(paintPanelLayout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGap(0, 500, Short.MAX_VALUE));
-		paintPanelLayout.setVerticalGroup(paintPanelLayout.createParallelGroup(
-				javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 500,
-				Short.MAX_VALUE));
+    }//GEN-LAST:event_paintPanelMouseClicked
 
-		jButton4.setText("Exit");
-		jButton4.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jButton4ActionPerformed(evt);
-			}
-		});
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton3ActionPerformed
+        lineButton.setEnabled(true);
+        circleButton.setEnabled(true);
+        rectangleButton.setEnabled(false);
+        command[1] = "Rectangle";
+    }// GEN-LAST:event_jButton3ActionPerformed
 
-		jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(
-				new String[] { "Black", "Red", "Green", "Blue" }));
-		jComboBox1.addItemListener(new java.awt.event.ItemListener() {
-			public void itemStateChanged(java.awt.event.ItemEvent evt) {
-				jComboBox1ItemStateChanged(evt);
-			}
-		});
-
-		zoomButton.setText("Zoom");
-		zoomButton.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				zoomButtonActionPerformed(evt);
-			}
-		});
-
-		colorChangeButton.setText("Change Color");
-		colorChangeButton
-				.addActionListener(new java.awt.event.ActionListener() {
-					public void actionPerformed(java.awt.event.ActionEvent evt) {
-						colorChangeButtonActionPerformed(evt);
-					}
-				});
-
-		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(
-				getContentPane());
-		getContentPane().setLayout(layout);
-		layout.setHorizontalGroup(layout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(
-						layout.createSequentialGroup()
-								.addContainerGap()
-								.addComponent(paintPanel,
-										javax.swing.GroupLayout.PREFERRED_SIZE,
-										javax.swing.GroupLayout.DEFAULT_SIZE,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addGap(18, 18, 18)
-								.addGroup(
-										layout.createParallelGroup(
-												javax.swing.GroupLayout.Alignment.LEADING,
-												false)
-												.addComponent(
-														jButton1,
-														javax.swing.GroupLayout.DEFAULT_SIZE,
-														javax.swing.GroupLayout.DEFAULT_SIZE,
-														Short.MAX_VALUE)
-												.addComponent(
-														jButton2,
-														javax.swing.GroupLayout.DEFAULT_SIZE,
-														javax.swing.GroupLayout.DEFAULT_SIZE,
-														Short.MAX_VALUE)
-												.addComponent(
-														jButton3,
-														javax.swing.GroupLayout.DEFAULT_SIZE,
-														javax.swing.GroupLayout.DEFAULT_SIZE,
-														Short.MAX_VALUE)
-												.addComponent(
-														jButton4,
-														javax.swing.GroupLayout.DEFAULT_SIZE,
-														113, Short.MAX_VALUE)
-												.addComponent(
-														jComboBox1,
-														0,
-														javax.swing.GroupLayout.DEFAULT_SIZE,
-														Short.MAX_VALUE)
-												.addComponent(
-														zoomButton,
-														javax.swing.GroupLayout.DEFAULT_SIZE,
-														javax.swing.GroupLayout.DEFAULT_SIZE,
-														Short.MAX_VALUE)
-												.addComponent(
-														colorChangeButton,
-														javax.swing.GroupLayout.DEFAULT_SIZE,
-														javax.swing.GroupLayout.DEFAULT_SIZE,
-														Short.MAX_VALUE))
-								.addContainerGap(
-										javax.swing.GroupLayout.DEFAULT_SIZE,
-										Short.MAX_VALUE)));
-		layout.setVerticalGroup(layout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(
-						layout.createSequentialGroup()
-								.addContainerGap()
-								.addGroup(
-										layout.createParallelGroup(
-												javax.swing.GroupLayout.Alignment.LEADING,
-												false)
-												.addGroup(
-														layout.createSequentialGroup()
-																.addComponent(
-																		jButton1)
-																.addPreferredGap(
-																		javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-																.addComponent(
-																		jButton2)
-																.addPreferredGap(
-																		javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-																.addComponent(
-																		jButton3)
-																.addGap(18, 18,
-																		18)
-																.addComponent(
-																		jComboBox1,
-																		javax.swing.GroupLayout.PREFERRED_SIZE,
-																		javax.swing.GroupLayout.DEFAULT_SIZE,
-																		javax.swing.GroupLayout.PREFERRED_SIZE)
-																.addGap(228,
-																		228,
-																		228)
-																.addComponent(
-																		colorChangeButton)
-																.addPreferredGap(
-																		javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-																.addComponent(
-																		zoomButton)
-																.addGap(18, 18,
-																		18)
-																.addComponent(
-																		jButton4))
-												.addComponent(
-														paintPanel,
-														javax.swing.GroupLayout.PREFERRED_SIZE,
-														javax.swing.GroupLayout.DEFAULT_SIZE,
-														javax.swing.GroupLayout.PREFERRED_SIZE))
-								.addContainerGap(
-										javax.swing.GroupLayout.DEFAULT_SIZE,
-										Short.MAX_VALUE)));
-
-		pack();
-	}// </editor-fold>//GEN-END:initComponents
-
-	private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton3ActionPerformed
-		jButton1.setEnabled(true);
-		jButton2.setEnabled(true);
-		jButton3.setEnabled(false);
-		command[1] = "Rectangle";
-	}// GEN-LAST:event_jButton3ActionPerformed
-
-	private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton2ActionPerformed
-		jButton1.setEnabled(true);
-		jButton2.setEnabled(false);
-		jButton3.setEnabled(true);
-		command[1] = "Circle";
-	}// GEN-LAST:event_jButton2ActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton2ActionPerformed
+        lineButton.setEnabled(true);
+        circleButton.setEnabled(false);
+        rectangleButton.setEnabled(true);
+        command[1] = "Circle";
+    }// GEN-LAST:event_jButton2ActionPerformed
 
 	private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
 		jButton1.setEnabled(false);
