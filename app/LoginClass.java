@@ -163,7 +163,6 @@ public class LoginClass extends javax.swing.JFrame {
     /**
      * To reVisible Login Page in other pages
      */
-
     public static void showForm() {
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);

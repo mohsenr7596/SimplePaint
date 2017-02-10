@@ -25,7 +25,7 @@ public class DatabaseConnectivity {
     }
 
     private static void initConnection() {
-        
+
         try {
             Class.forName(JDBC_DRIVER);
             conn = DriverManager.getConnection(DB_URL, USER_DB, PASS_DB);
@@ -67,7 +67,7 @@ public class DatabaseConnectivity {
         }
 
         closeConnection();
-        
+
         return -1;
     }
 
