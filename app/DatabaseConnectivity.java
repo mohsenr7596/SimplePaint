@@ -1,10 +1,6 @@
 package app;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -81,11 +77,37 @@ public class DatabaseConnectivity {
 
         try (ResultSet rs = stmt.executeQuery(sql)) {
             while (rs.next()) {
-                Shape shape = new Shape(Integer.parseInt(rs.getString(1)),
-                        Integer.parseInt(rs.getString(2)), Integer.parseInt(rs
-                        .getString(3)), Integer.parseInt(rs
-                        .getString(4)), rs.getString(5),
-                        rs.getString(6));
+
+                Shape shape;
+                switch (rs.getString(6)) {
+                    case "Line":
+                        shape = new Line(Integer.parseInt(rs.getString(1)),
+                                Integer.parseInt(rs.getString(2)),
+                                Integer.parseInt(rs.getString(3)),
+                                Integer.parseInt(rs.getString(4)),
+                                rs.getString(5));
+                        break;
+
+                    case "Circle":
+                        shape = new Circle(Integer.parseInt(rs.getString(1)),
+                                Integer.parseInt(rs.getString(2)),
+                                Integer.parseInt(rs.getString(3)),
+                                Integer.parseInt(rs.getString(4)),
+                                rs.getString(5));
+                        break;
+
+                    case "Rectangle":
+                        shape = new Rectangle(Integer.parseInt(rs.getString(1)),
+                                Integer.parseInt(rs.getString(2)),
+                                Integer.parseInt(rs.getString(3)),
+                                Integer.parseInt(rs.getString(4)),
+                                rs.getString(5));
+                        break;
+
+                    default:
+                        continue;
+
+                }
                 list.add(shape);
             }
 

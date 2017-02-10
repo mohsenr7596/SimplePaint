@@ -1,9 +1,9 @@
 package app;
 
+import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JOptionPane;
 
 public class BackendPaint {
 
@@ -16,27 +16,32 @@ public class BackendPaint {
 
     public void drawShape(Shape shape, Graphics g) {
 
-        if (shape.getModelShape().equals("")) {
-            return;
-        }
         switch (shape.getModelShape()) {
             case "Line":
-                defineColor(shape.getColor(), g).drawLine(shape.getStartX(),
-                        shape.getStartY(), shape.getEndX(), shape.getEndY());
+                defineColor(shape.getColor(), g)
+                        .drawLine(shape.getStartX(),
+                                shape.getStartY(),
+                                shape.getEndX(),
+                                shape.getEndY());
                 break;
             case "Circle":
-                drawCircle(shape.getStartX(), shape.getStartY(), shape.getEndX(),
-                        shape.getEndY(), defineColor(shape.getColor(), g));
-                break;
-            case "Rectangle":
-                drawRectangle(shape.getStartX(), shape.getStartY(),
-                        shape.getEndX(), shape.getEndY(),
+                drawCircle(shape.getStartX(),
+                        shape.getStartY(),
+                        shape.getEndX(),
+                        shape.getEndY(),
                         defineColor(shape.getColor(), g));
                 break;
-            default:
+            case "Rectangle":
+                drawRectangle(shape.getStartX(),
+                        shape.getStartY(),
+                        shape.getEndX(),
+                        shape.getEndY(),
+                        defineColor(shape.getColor(), g));
                 break;
-        }
 
+            default:
+                return;
+        }
         shapes.add(shape);
     }
 
@@ -61,7 +66,7 @@ public class BackendPaint {
         g.drawOval(x1 - d, y1 - d, 2 * d, 2 * d);
     }
 
-    public static Graphics defineColor(String s, Graphics g) {
+    public Graphics defineColor(String s, Graphics g) {
 
         switch (s) {
             case "Black":
@@ -95,9 +100,10 @@ public class BackendPaint {
         Object[] option = {"Yes and Save", "Don't Save", "No"};
         int n = JOptionPane.showOptionDialog(null, "Are you sure to exit ?",
                 "", JOptionPane.YES_NO_CANCEL_OPTION,
-                JOptionPane.QUESTION_MESSAGE, null, option, option[0]);
+                JOptionPane.QUESTION_MESSAGE, null, option, option[2]);
         if (n == JOptionPane.YES_OPTION) {
             addShapesToDataBase();
+            LoginClass.showForm();
             return true;
         } else if (n == JOptionPane.NO_OPTION) {
             LoginClass.showForm();

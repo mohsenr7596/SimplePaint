@@ -1,6 +1,6 @@
 package app;
 
-import java.awt.Graphics;
+import java.awt.*;
 import java.util.List;
 
 public class SimplePaint extends javax.swing.JFrame {
@@ -32,7 +32,7 @@ public class SimplePaint extends javax.swing.JFrame {
         rectangleButton = new javax.swing.JButton();
         circleButton = new javax.swing.JButton();
         lineButton = new javax.swing.JButton();
-        paintPanel = new javax.swing.JPanel(){
+        paintPanel = new javax.swing.JPanel() {
             @Override
             public void paint(Graphics g) {
                 super.paint(g);
@@ -75,6 +75,7 @@ public class SimplePaint extends javax.swing.JFrame {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 paintPanelMousePressed(evt);
             }
+
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 paintPanelMouseReleased(evt);
             }
@@ -83,12 +84,12 @@ public class SimplePaint extends javax.swing.JFrame {
         javax.swing.GroupLayout paintPanelLayout = new javax.swing.GroupLayout(paintPanel);
         paintPanel.setLayout(paintPanelLayout);
         paintPanelLayout.setHorizontalGroup(
-            paintPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
+                paintPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 500, Short.MAX_VALUE)
         );
         paintPanelLayout.setVerticalGroup(
-            paintPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
+                paintPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 500, Short.MAX_VALUE)
         );
 
         exitButton.setText("Exit");
@@ -98,7 +99,7 @@ public class SimplePaint extends javax.swing.JFrame {
             }
         });
 
-        colorComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Black", "Red", "Green", "Blue" }));
+        colorComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Black", "Red", "Green", "Blue"}));
         colorComboBox.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 colorComboBoxItemStateChanged(evt);
@@ -122,49 +123,48 @@ public class SimplePaint extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(paintPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lineButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(circleButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(rectangleButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(exitButton, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
-                    .addComponent(colorComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(zoomButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(colorChangeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(paintPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(lineButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(circleButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(rectangleButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(exitButton, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
+                                        .addComponent(colorComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(zoomButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(colorChangeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lineButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(circleButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(rectangleButton)
-                        .addGap(18, 18, 18)
-                        .addComponent(colorComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(228, 228, 228)
-                        .addComponent(colorChangeButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(zoomButton)
-                        .addGap(18, 18, 18)
-                        .addComponent(exitButton))
-                    .addComponent(paintPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addComponent(lineButton)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(circleButton)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(rectangleButton)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(colorComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(228, 228, 228)
+                                                .addComponent(colorChangeButton)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(zoomButton)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(exitButton))
+                                        .addComponent(paintPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
-        // TODO add your handling code here:
         if (bPaint.exitConfirm()) {
             dispose();
         }
@@ -192,9 +192,24 @@ public class SimplePaint extends javax.swing.JFrame {
     }//GEN-LAST:event_lineButtonActionPerformed
 
     private void paintPanelMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_paintPanelMouseReleased
-        Shape shape = new Shape(startX, startY, evt.getX(), evt.getY(),
-                command[0], command[1]);
 
+        Shape shape;
+        switch (command[1]) {
+            case "Line":
+                shape = new Line(startX, startY, evt.getX(), evt.getY(), command[0]);
+                break;
+
+            case "Circle":
+                shape = new Circle(startX, startY, evt.getX(), evt.getY(), command[0]);
+                break;
+
+            case "Rectangle":
+                shape = new Rectangle(startX, startY, evt.getX(), evt.getY(), command[0]);
+                break;
+
+            default:
+                return;
+        }
         bPaint.drawShape(shape, paintPanel.getGraphics());
     }//GEN-LAST:event_paintPanelMouseReleased
 
@@ -218,38 +233,38 @@ public class SimplePaint extends javax.swing.JFrame {
         startY = evt.getY();
 
         if ("".equals(command[1])) {
-            for (int i = 0; i < shapes.size(); i++) {
-                switch (shapes.get(i).getModelShape()) {
+            for (Shape shape : shapes) {
+                switch (shape.getModelShape()) {
                     case "Rectangle":
-                        if (shapes.get(i).rectangleContain(startX, startY)) {
+                        if (shape.containShape(startX, startY)) {
 
-                            bPaint.drawRectangle(shapes.get(i).getStartX(), shapes
-                                    .get(i).getStartY(), shapes.get(i).getEndX(),
-                                    shapes.get(i).getEndY(), BackendPaint
-                                    .defineColor(command[0],
-                                            paintPanel.getGraphics()));
+                            bPaint.drawRectangle(shape.getStartX(),
+                                    shape.getStartY(),
+                                    shape.getEndX(),
+                                    shape.getEndY(),
+                                    bPaint.defineColor(command[0], paintPanel.getGraphics()));
 
                         }
                         break;
                     case "Line":
-                        if (shapes.get(i).ptLineDistSq(startX, startY)) {
+                        if (shape.containShape(startX, startY)) {
 
-                            BackendPaint.defineColor(command[0],
+                            bPaint.defineColor(command[0],
                                     paintPanel.getGraphics()).drawLine(
-                                    shapes.get(i).getStartX(),
-                                    shapes.get(i).getStartY(),
-                                    shapes.get(i).getEndX(),
-                                    shapes.get(i).getEndY());
+                                    shape.getStartX(),
+                                    shape.getStartY(),
+                                    shape.getEndX(),
+                                    shape.getEndY());
                         }
                         break;
                     case "Circle":
-                        if (shapes.get(i).circleCotain(startX, startY)) {
+                        if (shape.circleCotain(startX, startY)) {
 
-                            bPaint.drawCircle(shapes.get(i).getStartX(), shapes
-                                    .get(i).getStartY(), shapes.get(i).getEndX(),
-                                    shapes.get(i).getEndY(), BackendPaint
-                                    .defineColor(command[0],
-                                            paintPanel.getGraphics()));
+                            bPaint.drawCircle(shape.getStartX(),
+                                    shape.getStartY(),
+                                    shape.getEndX(),
+                                    shape.getEndY(),
+                                    bPaint.defineColor(command[0], paintPanel.getGraphics()));
                         }
                         break;
                     default:
@@ -268,8 +283,9 @@ public class SimplePaint extends javax.swing.JFrame {
     private javax.swing.JPanel paintPanel;
     private javax.swing.JButton rectangleButton;
     private javax.swing.JButton zoomButton;
+
     // End of variables declaration//GEN-END:variables
-	private void initFrame() {
+    private void initFrame() {
         setResizable(false);
         setLocationRelativeTo(null);
         lineButton.setEnabled(false);
