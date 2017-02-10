@@ -107,9 +107,6 @@ public class LoginClass extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_LoginButtonActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -140,7 +137,6 @@ public class LoginClass extends javax.swing.JFrame {
         });
 
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton LoginButton;
     private javax.swing.JPasswordField PasswordTextField;

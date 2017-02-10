@@ -10,6 +10,8 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class BackendPaint {
 
@@ -50,7 +52,6 @@ public class BackendPaint {
                 break;
 
             default:
-                return;
         }
     }
 
@@ -130,8 +131,9 @@ public class BackendPaint {
         Robot robot = null;
         try {
             robot = new Robot();
-        } catch (AWTException e) {
-            e.printStackTrace();
+        } catch (AWTException ex) {
+            Logger.getLogger(BackendPaint.class.getName())
+                    .log(Level.SEVERE, null, ex);
         }
 
         final int size = 256;
