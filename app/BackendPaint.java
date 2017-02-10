@@ -14,7 +14,7 @@ public class BackendPaint {
         this.username = username;
     }
 
-    public void drawShape(Shape shape, Graphics g) {
+    public void drawShape(Shape shape, Graphics g, boolean add) {
 
         switch (shape.getModelShape()) {
             case "Line":
@@ -42,7 +42,9 @@ public class BackendPaint {
             default:
                 return;
         }
-        shapes.add(shape);
+        if (add) {
+            shapes.add(shape);
+        }
     }
 
     public void drawRectangle(int x1, int y1, int x2, int y2, Graphics g) {

@@ -106,7 +106,7 @@
         <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="paintPanelMouseReleased"/>
       </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JPanel(){&#xa;    @Override&#xa;    public void paint(Graphics g) {&#xa;        super.paint(g);&#xa;        for (Shape s : shapes) {&#xa;            bPaint.drawShape(s, g);&#xa;        }&#xa;    }&#xa;}"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JPanel(){&#xa;    @Override&#xa;    public void paint(Graphics g) {&#xa;        super.paint(g);&#xa;        for (Shape s : shapes) {&#xa;            bPaint.drawShape(s, g, false);&#xa;        }&#xa;    }&#xa;}"/>
       </AuxValues>
 
       <Layout>
