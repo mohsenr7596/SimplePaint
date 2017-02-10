@@ -7,7 +7,7 @@ public class Rectangle extends Shape {
     }
 
     @Override
-    public boolean containShape(int x, int y) {
+    public boolean containShape(double x, double y) {
 
         int x1 = getStartX();
         int y1 = getStartY();

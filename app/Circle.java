@@ -7,13 +7,13 @@ public class Circle extends Shape {
     }
 
     @Override
-    public boolean containShape(int x, int y) {
+    public boolean containShape(double x, double y) {
 
         int dx = (int) Math.pow((getEndX() - getStartX()), 2);
         int dy = (int) Math.pow((getEndY() - getStartY()), 2);
         int d = (int) Math.sqrt(dx + dy);
 
-        int res = (x - getStartX()) * (x - getStartX()) + (y - getStartY()) * (y - getStartY());
+        int res = (int) ((x - getStartX()) * (x - getStartX()) + (y - getStartY()) * (y - getStartY()));
 
         return res <= ((d * d) + 110) && res >= ((d * d) - 110);
     }

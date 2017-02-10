@@ -121,6 +121,27 @@ public class DatabaseConnectivity {
         return list;
     }
 
+    public static void deletePaint(String username, Shape shape) {
+        initConnection();
+
+        String sql = "DELETE\n" +
+                "FROM\n" +
+                "  `" + username + "`\n" +
+                "WHERE\n" +
+                "  `intX` = '" + shape.getStartX() + "' AND `intY` = '" + shape.getStartY() + "' AND `intEndX` = '" + shape.getEndX() + "' AND `intEndY` = '" + shape.getEndY() + "' AND `modol` = '" + shape.getModelShape() + "';";
+
+
+        try {
+            stmt.executeUpdate(sql);
+        } catch (SQLException ex) {
+            Logger.getLogger(DatabaseConnectivity.class.getName()).log(
+                    Level.SEVERE, null, ex);
+        }
+
+        closeConnection();
+
+    }
+
     public static void addPaints(List<Shape> list, String user) {
 
         initConnection();
@@ -152,15 +173,19 @@ public class DatabaseConnectivity {
 
         initConnection();
 
-        String sql = "CREATE TABLE `paintproject`.`" + user + "` (\n"
-                + "  `intX`    VARCHAR(45) NOT NULL,\n"
-                + "  `intY`    VARCHAR(45) NOT NULL,\n"
-                + "  `intEndX` VARCHAR(45) NOT NULL,\n"
-                + "  `intEndY` VARCHAR(45) NOT NULL,\n"
-                + "  `color`   VARCHAR(45) NOT NULL,\n"
-                + "  `modol`   VARCHAR(45) NOT NULL\n" + ")\n"
-                + "  ENGINE = MyISAM\n" + "  CHARSET = utf8\n"
-                + "  COLLATE utf8_general_ci;";
+        String sql = "CREATE TABLE `paintproject`.`" + user + "` (\n" +
+                "  `intX`    VARCHAR(45) NOT NULL,\n" +
+                "  `intY`    VARCHAR(45) NOT NULL,\n" +
+                "  `intEndX` VARCHAR(45) NOT NULL,\n" +
+                "  `intEndY` VARCHAR(45) NOT NULL,\n" +
+                "  `color`   VARCHAR(45) NOT NULL,\n" +
+                "  `modol`   VARCHAR(45) NOT NULL,\n" +
+                "  `id`      INT         NOT NULL AUTO_INCREMENT,\n" +
+                "  PRIMARY KEY (`id`)\n" +
+                ")\n" +
+                "  ENGINE = MyISAM\n" +
+                "  CHARSET = utf8\n" +
+                "  COLLATE utf8_general_ci;";
 
         try {
             stmt.executeUpdate(sql);
@@ -184,5 +209,25 @@ public class DatabaseConnectivity {
         closeConnection();
 
         return 1;
+    }
+
+    public static void changeColor(String username, Shape shape) {
+
+        initConnection();
+
+        String sql = "UPDATE `" + username + "`\n" +
+                "SET `color` = '" + shape.getColor() + "'\n" +
+                "WHERE\n" +
+                "  `intX` = '" + shape.getStartX() + "' AND `intY` = '" + shape.getStartY() + "' AND `intEndX` = '" + shape.getEndX() + "' AND `intEndY` = '" + shape.getEndY() + "' AND `modol` = '" + shape.getModelShape() + "';";
+
+        try {
+            stmt.executeUpdate(sql);
+        } catch (SQLException ex) {
+            Logger.getLogger(DatabaseConnectivity.class.getName()).log(
+                    Level.SEVERE, null, ex);
+        }
+
+        closeConnection();
+
     }
 }

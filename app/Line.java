@@ -7,15 +7,15 @@ public class Line extends Shape {
     }
 
     @Override
-    public boolean containShape(int px, int py) {
+    public boolean containShape(double px, double py) {
         double x2 = getEndX();
         double y2 = getEndY();
 
         x2 -= getStartX();
         y2 -= getStartY();
 
-        px -= getStartX();
-        py -= getEndY();
+        px = px - getStartX();
+        py = py - getStartY();
         double dotprod = px * x2 + py * y2;
 
         double projlenSq = dotprod * dotprod / (x2 * x2 + y2 * y2);

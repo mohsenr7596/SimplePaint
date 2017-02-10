@@ -14,7 +14,11 @@ public class BackendPaint {
         this.username = username;
     }
 
-    public void drawShape(Shape shape, Graphics g, boolean add) {
+    public void addShape(Shape shape) {
+        shapes.add(shape);
+    }
+
+    public void drawShape(Shape shape, Graphics g) {
 
         switch (shape.getModelShape()) {
             case "Line":
@@ -42,9 +46,6 @@ public class BackendPaint {
             default:
                 return;
         }
-        if (add) {
-            shapes.add(shape);
-        }
     }
 
     public void drawRectangle(int x1, int y1, int x2, int y2, Graphics g) {
@@ -66,6 +67,10 @@ public class BackendPaint {
         int dy = (int) Math.pow((y2 - y1), 2);
         int d = (int) Math.sqrt(dx + dy);
         g.drawOval(x1 - d, y1 - d, 2 * d, 2 * d);
+    }
+
+    public void changeColor(Shape shape) {
+        DatabaseConnectivity.changeColor(username, shape);
     }
 
     public Graphics defineColor(String s, Graphics g) {
