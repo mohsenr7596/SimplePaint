@@ -16,15 +16,13 @@ public class Line extends Shape {
 
         px = px - getStartX();
         py = py - getStartY();
-        double dotprod = px * x2 + py * y2;
+        double v = px * x2 + py * y2;
 
-        double projlenSq = dotprod * dotprod / (x2 * x2 + y2 * y2);
-
-        double lenSq = px * px + py * py - projlenSq;
+        double lenSq = px * px + py * py - (v * v / (x2 * x2 + y2 * y2));
         if (lenSq < 0) {
             lenSq = 0;
         }
 
-        return ((int) lenSq == 0);
+        return (int) lenSq == 0;
     }
 }
