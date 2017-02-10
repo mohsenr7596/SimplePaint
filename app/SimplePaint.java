@@ -72,9 +72,6 @@ public class SimplePaint extends javax.swing.JFrame {
         paintPanel.setBackground(java.awt.Color.white);
         paintPanel.setPreferredSize(new java.awt.Dimension(500, 500));
         paintPanel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                paintPanelMouseClicked(evt);
-            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 paintPanelMousePressed(evt);
             }
@@ -166,47 +163,6 @@ public class SimplePaint extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void paintPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_paintPanelMouseClicked
-        
-        int x = evt.getX();
-        int y = evt.getY();
-        for (int i = 0; i < shapes.size(); i++) {
-            switch (shapes.get(i).getModelShape()) {
-                case "Rectangle":
-                    if (shapes.get(i).rectangleContain(x, y)) {
-                        
-                        bPaint.drawRectangle(shapes.get(i).getStartX(), shapes
-                                .get(i).getStartY(), shapes.get(i).getEndX(),
-                                shapes.get(i).getEndY(), BackendPaint
-                                        .changeColor(command[0],
-                                                paintPanel.getGraphics()));
-                        
-                    }   break;
-                case "Line":
-                    if (shapes.get(i).ptLineDistSq(x, y)) {
-                        
-                        BackendPaint.changeColor(command[0],
-                                paintPanel.getGraphics()).drawLine(
-                                        shapes.get(i).getStartX(),
-                                        shapes.get(i).getStartY(),
-                                        shapes.get(i).getEndX(),
-                                        shapes.get(i).getEndY());
-                    }   break;
-                case "Circle":
-                    if (shapes.get(i).circleCotain(x, y)) {
-                        
-                        bPaint.drawCircle(shapes.get(i).getStartX(), shapes
-                                .get(i).getStartY(), shapes.get(i).getEndX(),
-                                shapes.get(i).getEndY(), BackendPaint
-                                        .changeColor(command[0],
-                                                paintPanel.getGraphics()));
-                    }   break;
-                default:
-                    break;
-            }
-        }
-    }//GEN-LAST:event_paintPanelMouseClicked
-
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
         // TODO add your handling code here:
         if (bPaint.exitConfirm()) {
@@ -260,6 +216,47 @@ public class SimplePaint extends javax.swing.JFrame {
     private void paintPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_paintPanelMousePressed
         startX = evt.getX();
         startY = evt.getY();
+
+        if ("".equals(command[1])) {
+            for (int i = 0; i < shapes.size(); i++) {
+                switch (shapes.get(i).getModelShape()) {
+                    case "Rectangle":
+                        if (shapes.get(i).rectangleContain(startX, startY)) {
+
+                            bPaint.drawRectangle(shapes.get(i).getStartX(), shapes
+                                    .get(i).getStartY(), shapes.get(i).getEndX(),
+                                    shapes.get(i).getEndY(), BackendPaint
+                                    .defineColor(command[0],
+                                            paintPanel.getGraphics()));
+
+                        }
+                        break;
+                    case "Line":
+                        if (shapes.get(i).ptLineDistSq(startX, startY)) {
+
+                            BackendPaint.defineColor(command[0],
+                                    paintPanel.getGraphics()).drawLine(
+                                    shapes.get(i).getStartX(),
+                                    shapes.get(i).getStartY(),
+                                    shapes.get(i).getEndX(),
+                                    shapes.get(i).getEndY());
+                        }
+                        break;
+                    case "Circle":
+                        if (shapes.get(i).circleCotain(startX, startY)) {
+
+                            bPaint.drawCircle(shapes.get(i).getStartX(), shapes
+                                    .get(i).getStartY(), shapes.get(i).getEndX(),
+                                    shapes.get(i).getEndY(), BackendPaint
+                                    .defineColor(command[0],
+                                            paintPanel.getGraphics()));
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
     }//GEN-LAST:event_paintPanelMousePressed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

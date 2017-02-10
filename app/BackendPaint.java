@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 public class BackendPaint {
 
 	private final List<Shape> shapes = new ArrayList<>();
-	public final String username;
+	private final String username;
 
 	public BackendPaint(String username) {
 		this.username = username;
@@ -21,17 +21,17 @@ public class BackendPaint {
 		}
 		switch (shape.getModelShape()) {
 		case "Line":
-			changeColor(shape.getColor(), g).drawLine(shape.getStartX(),
+			defineColor(shape.getColor(), g).drawLine(shape.getStartX(),
 					shape.getStartY(), shape.getEndX(), shape.getEndY());
 			break;
 		case "Circle":
 			drawCircle(shape.getStartX(), shape.getStartY(), shape.getEndX(),
-					shape.getEndY(), changeColor(shape.getColor(), g));
+					shape.getEndY(), defineColor(shape.getColor(), g));
 			break;
 		case "Rectangle":
 			drawRectangle(shape.getStartX(), shape.getStartY(),
 					shape.getEndX(), shape.getEndY(),
-					changeColor(shape.getColor(), g));
+					defineColor(shape.getColor(), g));
 			break;
 		default:
 			break;
@@ -61,7 +61,7 @@ public class BackendPaint {
 		g.drawOval(x1 - d, y1 - d, 2 * d, 2 * d);
 	}
 
-	public static Graphics changeColor(String s, Graphics g) {
+	public static Graphics defineColor(String s, Graphics g) {
 
 		switch (s) {
 		case "Black":
