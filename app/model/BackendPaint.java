@@ -1,4 +1,7 @@
-package app;
+package app.model;
+
+import app.*;
+import app.shapes.Shape;
 
 import javax.swing.*;
 import java.awt.*;
@@ -7,7 +10,7 @@ import java.util.List;
 
 public class BackendPaint {
 
-    private final List<Shape> shapes = new ArrayList<>();
+    private final List<app.shapes.Shape> shapes = new ArrayList<>();
     private final String username;
 
     public BackendPaint(String username) {

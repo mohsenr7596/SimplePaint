@@ -1,5 +1,9 @@
 package app;
 
+import app.model.BackendPaint;
+import app.shapes.Circle;
+import app.shapes.Line;
+
 import java.awt.*;
 import java.util.List;
 
@@ -7,7 +11,7 @@ public class SimplePaint extends javax.swing.JFrame {
 
     private final String[] command = {"Black", "Line"};
     private final BackendPaint bPaint;
-    private final List<Shape> shapes;
+    private final List<app.shapes.Shape> shapes;
     private int startX = -1;
     private int startY = -1;
 
@@ -30,7 +34,7 @@ public class SimplePaint extends javax.swing.JFrame {
             @Override
             public void paint(Graphics g) {
                 super.paint(g);
-                for (Shape s : shapes) {
+                for (app.shapes.Shape s : shapes) {
                     bPaint.drawShape(s, g);
                 }
             }
@@ -187,7 +191,7 @@ public class SimplePaint extends javax.swing.JFrame {
 
     private void paintPanelMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_paintPanelMouseReleased
 
-        Shape shape;
+        app.shapes.Shape shape;
         switch (command[1]) {
             case "Line":
                 shape = new Line(startX, startY, evt.getX(), evt.getY(), command[0]);
@@ -198,7 +202,7 @@ public class SimplePaint extends javax.swing.JFrame {
                 break;
 
             case "Rectangle":
-                shape = new Rectangle(startX, startY, evt.getX(), evt.getY(), command[0]);
+                shape = new app.shapes.Rectangle(startX, startY, evt.getX(), evt.getY(), command[0]);
                 break;
 
             default:
@@ -232,12 +236,15 @@ public class SimplePaint extends javax.swing.JFrame {
             for (int i = 0; i < shapes.size(); i++) {
                 if (shapes.get(i).containShape(startX, startY)) {
                     shapes.get(i).setColor(command[0]);
+                    bPaint.changeColor(shapes.get(i));
                     break;
                 }
             }
             repaint();
         } else if ("zoom".equals(command[1])) {
 //          TODO
+
+            
 
             repaint();
         }

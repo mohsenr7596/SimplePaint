@@ -1,4 +1,4 @@
-package app;
+package app.shapes;
 
 public class Rectangle extends Shape {
 

@@ -1,6 +1,4 @@
-package app;
-
-import java.awt.geom.Line2D;
+package app.shapes;
 
 public abstract class Shape {
 

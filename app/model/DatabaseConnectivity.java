@@ -1,4 +1,9 @@
-package app;
+package app.model;
+
+import app.shapes.Circle;
+import app.shapes.Line;
+import app.shapes.Rectangle;
+import app.shapes.Shape;
 
 import java.sql.*;
 import java.util.ArrayList;

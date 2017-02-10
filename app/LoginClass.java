@@ -1,5 +1,6 @@
 package app;
 
+import app.model.DatabaseConnectivity;
 import javax.swing.*;
 import java.awt.*;
 
