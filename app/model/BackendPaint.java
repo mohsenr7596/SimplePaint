@@ -1,6 +1,6 @@
 package app.model;
 
-import app.*;
+import app.View.LoginClass;
 import app.shapes.Shape;
 
 import javax.swing.*;

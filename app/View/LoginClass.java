@@ -1,6 +1,7 @@
-package app;
+package app.View;
 
 import app.model.DatabaseConnectivity;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -30,6 +31,7 @@ public class LoginClass extends javax.swing.JFrame {
         UsernameTextField = new javax.swing.JTextField();
         LoginButton = new javax.swing.JButton();
         PasswordTextField = new javax.swing.JPasswordField();
+        signUpLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -39,9 +41,15 @@ public class LoginClass extends javax.swing.JFrame {
 
         LoginButton.setText("Login");
         LoginButton.addActionListener(new java.awt.event.ActionListener() {
-            @Override
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LoginButtonActionPerformed(evt);
+            }
+        });
+
+        signUpLabel.setText("SingUp?");
+        signUpLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                signUpLabelMouseClicked(evt);
             }
         });
 
@@ -49,18 +57,20 @@ public class LoginClass extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(LoginButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel1)
+                                        .addComponent(jLabel2))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jLabel1)
-                                                        .addComponent(jLabel2))
+                                                .addComponent(LoginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(18, 18, 18)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(UsernameTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
-                                                        .addComponent(PasswordTextField))))
+                                                .addComponent(signUpLabel)
+                                                .addGap(0, 0, Short.MAX_VALUE))
+                                        .addComponent(UsernameTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
+                                        .addComponent(PasswordTextField))
                                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -75,7 +85,9 @@ public class LoginClass extends javax.swing.JFrame {
                                         .addComponent(jLabel2)
                                         .addComponent(PasswordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
-                                .addComponent(LoginButton)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(LoginButton)
+                                        .addComponent(signUpLabel))
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -94,7 +106,7 @@ public class LoginClass extends javax.swing.JFrame {
             case 1:
                 setVisible(false);
                 new SimplePaint(UsernameTextField.getText()).setVisible(true);
-                break;
+                return;
 
             case -1:
                 JOptionPane.showMessageDialog(null, "Password is incorrect!");
@@ -103,9 +115,14 @@ public class LoginClass extends javax.swing.JFrame {
             case 0:
             default:
                 JOptionPane.showMessageDialog(null, "User not found!");
+                signUpLabel.setVisible(true);
                 break;
         }
     }//GEN-LAST:event_LoginButtonActionPerformed
+
+    private void signUpLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signUpLabelMouseClicked
+        new SingUpDialog(UsernameTextField.getText());
+    }//GEN-LAST:event_signUpLabelMouseClicked
 
     public static void main(String[] args) {
         /* Set the Nimbus look and feel */
@@ -137,24 +154,28 @@ public class LoginClass extends javax.swing.JFrame {
         });
 
     }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton LoginButton;
     private javax.swing.JPasswordField PasswordTextField;
     private javax.swing.JTextField UsernameTextField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel signUpLabel;
     // End of variables declaration//GEN-END:variables
 
     /**
      * Initialization this form for best view
      */
-    private void initFrame() {
+    private synchronized void initFrame() {
 
         frame = this;
         setTitle("Login Page");
         setResizable(false);
         setLocationRelativeTo(null);
         getRootPane().setDefaultButton(LoginButton);
+        signUpLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        signUpLabel.setVisible(false);
     }
 
     /**

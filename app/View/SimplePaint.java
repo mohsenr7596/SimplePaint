@@ -1,8 +1,9 @@
-package app;
+package app.View;
 
 import app.model.BackendPaint;
 import app.shapes.Circle;
 import app.shapes.Line;
+
 import java.awt.*;
 import java.util.List;
 
