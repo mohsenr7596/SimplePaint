@@ -174,7 +174,7 @@ public class DatabaseConnectivity {
         closeConnection();
     }
 
-    private static int createUser(String user, String pass) {
+    public static int createUser(String user, String pass) {
 
         initConnection();
 

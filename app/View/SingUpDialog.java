@@ -1,5 +1,9 @@
 package app.View;
 
+import app.model.DatabaseConnectivity;
+
+import javax.swing.*;
+
 /**
  * @author Nima
  */
@@ -13,13 +17,9 @@ public class SingUpDialog extends javax.swing.JDialog {
      * @param user
      */
     public SingUpDialog(String user) {
-        this(new javax.swing.JFrame(), true);
-        username = user;
-    }
-
-    private SingUpDialog(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+        super(new javax.swing.JFrame(), true);
         initComponents();
+        username = user;
         initDialog();
     }
 
@@ -109,11 +109,19 @@ public class SingUpDialog extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
-        // TODO add your handling code here:
+        if (passTextField.getText().equals(confirmPassTextField.getText())) {
+            if (DatabaseConnectivity.checkUserPass(userTextField.getText(), passTextField.getText()) == 0) {
+                DatabaseConnectivity.createUser(userTextField.getText(), passTextField.getText());
+                JOptionPane.showMessageDialog(null, "Successful to create user!");
+                dispose();
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Password does not match!");
+        }
     }//GEN-LAST:event_okButtonActionPerformed
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
-        // TODO add your handling code here:
+        dispose();
     }//GEN-LAST:event_cancelButtonActionPerformed
 
     private void initDialog() {
